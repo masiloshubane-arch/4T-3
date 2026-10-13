@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#210d18">
+
+    <title>A Little Something for You ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Background photograph -->
+    <div class="background"></div>
+    <div class="dark-overlay"></div>
+
+    <!-- Floating hearts -->
+    <div id="hearts-container" aria-hidden="true"></div>
+
+    <!-- Background music -->
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="music/our-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Opening screen -->
+    <main class="opening-screen" id="openingScreen">
+
+        <div class="opening-card">
+
+            <div class="little-heart">♥</div>
+
+            <p class="eyebrow">A LITTLE QUESTION BEFORE YOU BEGIN</p>
+
+            <h1>
+                Are you sure you're not gonna
+                <em>freak out after this?</em>
+            </h1>
+
+            <p class="opening-description">
+                Because once you open this, you can't say
+                I didn't warn you. 👀
+            </p>
+
+            <div class="button-area" id="buttonArea">
+                <button id="yesButton" class="yes-button">
+                    Yes, I'm ready ❤️
+                </button>
+
+                <button id="noButton" class="no-button">
+                    No, I'm scared 😭
+                </button>
+            </div>
+
+            <p class="tiny-note">
+                Choose wisely. Or at least try. :)
+            </p>
+
+        </div>
+    </main>
+
+    <!-- Love letter screen -->
+    <main class="letter-screen hidden" id="letterScreen">
+
+        <header class="letter-header">
+            <span class="header-line"></span>
+            <p>A LETTER I COULDN'T WRITE ON PAPER</p>
+            <span class="header-line"></span>
+        </header>
+
+        <article class="letter-card">
+
+            <div class="letter-decoration">♡</div>
+
+            <h2>To the girl who's been on my mind...</h2>
+
+            <p class="letter-intro">
+                Some things are easier to feel than to explain.
+                This is me trying to explain one of them.
+            </p>
+
+            <div id="letterText" class="letter-text"></div>
+
+            <p class="letter-signature hidden" id="signature">
+                With a little courage and a lot of honesty,
+                <br>
+                <span>From me, to you. ♡</span>
+            </p>
+
+            <div class="letter-footer hidden" id="letterFooter">
+                <span>SOULXSIGH</span>
+                <span>Some feelings refuse to remain unspoken.</span>
+            </div>
+
+            <button id="replayButton" class="replay-button hidden">
+                Read it again ↻
+            </button>
+
+        </article>
+
+        <p class="bottom-note">
+            Take your time. There is no rush to answer. ♡
+        </p>
+
+    </main>
+
+    <button id="musicButton" class="music-button hidden"
+            aria-label="Pause or play background music">
+        ♫ <span id="musicLabel">Music on</span>
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

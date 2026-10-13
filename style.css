@@ -1,0 +1,568 @@
+
+/* ==========================================
+   OUR LITTLE SECRET
+   Romantic website styling
+========================================== */
+
+:root {
+    --burgundy: #4c172e;
+    --rose: #d98ba7;
+    --soft-pink: #f5dce5;
+    --cream: #fff7f0;
+    --muted: #e5cbd5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #210d18;
+    color: var(--cream);
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+/* Background photograph */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+
+    background-image: url("images/our-picture.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transform: scale(1.03);
+    animation: backgroundReveal 2s ease forwards;
+}
+
+.dark-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25, 8, 18, 0.77),
+            rgba(68, 18, 42, 0.65),
+            rgba(18, 8, 16, 0.83)
+        );
+}
+
+/* Floating hearts */
+
+#hearts-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -60px;
+
+    color: rgba(255, 190, 215, 0.7);
+    text-shadow: 0 0 15px rgba(255, 130, 180, 0.4);
+
+    animation: floatUp linear forwards;
+    user-select: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    85% {
+        opacity: 0.65;
+    }
+
+    100% {
+        transform: translateY(-115vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+@keyframes backgroundReveal {
+    from {
+        opacity: 0.65;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.03);
+    }
+}
+
+/* Opening screen */
+
+.opening-screen {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 28px 18px;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.opening-card {
+    width: 100%;
+    max-width: 540px;
+
+    padding: 45px 32px;
+    text-align: center;
+
+    background: rgba(38, 12, 26, 0.63);
+    border: 1px solid rgba(255, 220, 235, 0.22);
+    border-radius: 25px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
+
+    animation: cardAppear 1s ease both;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.little-heart {
+    color: #f5a5c3;
+    font-size: 36px;
+    margin-bottom: 20px;
+
+    animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.17);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+}
+
+.eyebrow {
+    color: #e8b7cb;
+    font-size: 10px;
+    letter-spacing: 3px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.opening-card h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(38px, 7vw, 58px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.opening-card h1 em {
+    display: block;
+    color: #f3b4ce;
+    font-weight: 400;
+}
+
+.opening-description {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    max-width: 350px;
+    margin: 0 auto 30px;
+}
+
+/* Buttons */
+
+.button-area {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    min-height: 56px;
+}
+
+button {
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.yes-button,
+.no-button {
+    min-height: 48px;
+    border-radius: 30px;
+    padding: 13px 21px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.yes-button {
+    color: #351323;
+    background: #f1c0d2;
+    border: 1px solid #f1c0d2;
+
+    box-shadow: 0 5px 24px rgba(241, 192, 210, 0.16);
+}
+
+.yes-button:hover {
+    background: #ffe0eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(241, 192, 210, 0.25);
+}
+
+.no-button {
+    color: #f6dce7;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 230, 240, 0.35);
+
+    touch-action: manipulation;
+}
+
+.tiny-note {
+    color: rgba(255, 228, 238, 0.65);
+    font-size: 10px;
+    margin-top: 25px;
+}
+
+/* Screen transitions */
+
+.hidden {
+    display: none !important;
+}
+
+.opening-screen.leaving {
+    opacity: 0;
+    transform: scale(0.96);
+    pointer-events: none;
+}
+
+/* Letter screen */
+
+.letter-screen {
+    width: 100%;
+    min-height: 100svh;
+
+    padding: 45px 18px 35px;
+
+    animation: letterAppear 1.2s ease both;
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letter-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+
+    max-width: 600px;
+    margin: 0 auto 24px;
+}
+
+.letter-header p {
+    color: #f3d0de;
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 2.2px;
+    line-height: 1.8;
+}
+
+.header-line {
+    width: 30px;
+    height: 1px;
+    flex-shrink: 0;
+    background: rgba(255, 210, 228, 0.5);
+}
+
+.letter-card {
+    width: 100%;
+    max-width: 740px;
+
+    margin: 0 auto;
+    padding: 48px clamp(22px, 6vw, 58px);
+
+    background: rgba(32, 12, 23, 0.79);
+    border: 1px solid rgba(255, 225, 238, 0.2);
+    border-radius: 20px;
+
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+}
+
+.letter-decoration {
+    color: #e9a6c1;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.letter-card h2 {
+    color: #fff1f6;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(30px, 5vw, 43px);
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.letter-intro {
+    color: #e4c4d2;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 19px;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.8;
+
+    margin: 0 auto 30px;
+    max-width: 510px;
+}
+
+.letter-text {
+    color: #f5e7ed;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(18px, 2.6vw, 21px);
+    font-weight: 400;
+    line-height: 1.95;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    min-height: 80px;
+}
+
+.letter-text strong {
+    color: #ffc5dc;
+    font-weight: 600;
+}
+
+.letter-text .soulxsigh {
+    color: #f3b4ce;
+    font-style: italic;
+}
+
+.letter-signature {
+    margin-top: 35px;
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 210, 230, 0.2);
+
+    color: #eacbd8;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    line-height: 1.9;
+    text-align: right;
+}
+
+.letter-signature span {
+    color: #f3b4ce;
+    font-size: 25px;
+    font-style: italic;
+}
+
+.letter-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 32px;
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 210, 230, 0.13);
+
+    text-align: center;
+    color: #dcb5c7;
+}
+
+.letter-footer span:first-child {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #f0b7ce;
+}
+
+.letter-footer span:last-child {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.replay-button {
+    display: block;
+    margin: 28px auto 0;
+    padding: 12px 23px;
+
+    color: #f9dbe7;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 225, 238, 0.28);
+    border-radius: 30px;
+
+    font-size: 12px;
+}
+
+.replay-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.bottom-note {
+    color: rgba(255, 224, 237, 0.75);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 24px;
+    padding: 0 12px;
+}
+
+/* Music control */
+
+.music-button {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 12px 16px;
+
+    color: #ffe4ee;
+    background: rgba(35, 12, 25, 0.87);
+    border: 1px solid rgba(255, 225, 238, 0.25);
+    border-radius: 30px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    font-size: 12px;
+}
+
+/* Smaller screens */
+
+@media (max-width: 480px) {
+    .opening-card {
+        padding: 38px 21px;
+        border-radius: 20px;
+    }
+
+    .opening-card h1 {
+        font-size: 42px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .button-area {
+        gap: 10px;
+    }
+
+    .yes-button,
+    .no-button {
+        padding: 13px 16px;
+        font-size: 11px;
+    }
+
+    .letter-screen {
+        padding: 32px 12px 28px;
+    }
+
+    .letter-card {
+        padding: 32px 21px;
+        border-radius: 16px;
+    }
+
+    .letter-text {
+        font-size: 19px;
+        line-height: 1.85;
+    }
+
+    .letter-intro {
+        font-size: 18px;
+    }
+
+    .letter-signature {
+        font-size: 17px;
+    }
+
+    .letter-footer span:last-child {
+        font-size: 15px;
+    }
+}
+
+/* Respect reduced-motion settings */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
